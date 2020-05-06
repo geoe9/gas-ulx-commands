@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"name"            "GAS ULX Commands"
+	"version"         "1.0"
+	"up_date"         "06/05/2020"
+	"author_name"     "geo"
+	"author_url"      "https://github.com/geoe9/"
+}
