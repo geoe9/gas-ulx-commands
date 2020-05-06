@@ -28,7 +28,7 @@ function ulx.createsit( calling_ply, plys )
 	GAS.AdminSits:CreateSit( calling_ply, plys )
 end
 local createsit = ulx.command( CATEGORY_NAME, "ulx createsit", ulx.createsit, "!createsit" )
-createsit:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
+createsit:addParam{ type=ULib.cmds.PlayersArg, target= ="!^" }
 createsit:defaultAccess( ULib.ACCESS_ADMIN )
 createsit:help( "Creates a sit with the specified player(s)." )
 
@@ -40,7 +40,7 @@ function ulx.sitadd( calling_ply, target_plys )
 	end
 end
 local sitadd = ulx.command( CATEGORY_NAME, "ulx sitadd", ulx.sitadd, "!sitadd" )
-sitadd:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
+sitadd:addParam{ type=ULib.cmds.PlayersArg, target= ="!^" }
 sitadd:defaultAccess( ULib.ACCESS_ADMIN )
 sitadd:help( "Adds or invites the specified player(s) to the current sit." )
 
@@ -52,7 +52,7 @@ function ulx.sitremove( calling_ply, target_plys )
 	end
 end
 local sitremove = ulx.command( CATEGORY_NAME, "ulx sitremove", ulx.sitremove, "!sitremove" )
-sitremove:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
+sitremove:addParam{ type=ULib.cmds.PlayersArg, target= ="!^" }
 sitremove:defaultAccess( ULib.ACCESS_ADMIN )
 sitremove:help( "Removes the specified player(s) from the current sit." )
 
