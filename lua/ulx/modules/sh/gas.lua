@@ -1,5 +1,12 @@
+----------------------------------
+-- @package     GAS ULX Commands
+-- @author      geo
+-- @build       v1.0
+----------------------------------
+
 local CATEGORY_NAME = "GAS"
 
+-- Player Database
 function ulx.database( calling_ply )
 	calling_ply:ConCommand("gmodadminsuite playerdatabase")
 end
@@ -7,6 +14,7 @@ local database = ulx.command( CATEGORY_NAME, "ulx database", ulx.database, "!dat
 database:defaultAccess( ULib.ACCESS_ADMIN )
 database:help( "Open the GAS player database." )
 
+-- Logs
 function ulx.logs( calling_ply )
 	calling_ply:ConCommand("gmodadminsuite logging")
 end
@@ -14,6 +22,7 @@ local logs = ulx.command( CATEGORY_NAME, "ulx logs", ulx.logs, "!logs" )
 logs:defaultAccess( ULib.ACCESS_ADMIN )
 logs:help( "Open the bLogs logs menu." )
 
+-- Create Sit
 function ulx.createsit( calling_ply, plys )
 	table.insert( plys, 1, calling_ply )
 	GAS.AdminSits:CreateSit( calling_ply, plys )
@@ -23,6 +32,7 @@ createsit:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
 createsit:defaultAccess( ULib.ACCESS_ADMIN )
 createsit:help( "Creates a sit with the specified player(s)." )
 
+-- Add to Sit
 function ulx.sitadd( calling_ply, target_plys )
 	for i=1, #target_plys do
 		local v = target_plys[ i ]
@@ -34,6 +44,7 @@ sitadd:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
 sitadd:defaultAccess( ULib.ACCESS_ADMIN )
 sitadd:help( "Adds or invites the specified player(s) to the current sit." )
 
+-- Remove from Sit
 function ulx.sitremove( calling_ply, target_plys )
 	for i=1, #target_plys do
 		local v = target_plys[ i ]
@@ -45,6 +56,7 @@ sitremove:addParam{ type=ULib.cmds.PlayersArg, ULib.cmds.optional }
 sitremove:defaultAccess( ULib.ACCESS_ADMIN )
 sitremove:help( "Removes the specified player(s) from the current sit." )
 
+-- End Sit
 function ulx.endsit( calling_ply )
 	GAS.AdminSits:EndSit( GAS.AdminSits:GetPlayerSit( calling_ply ) )
 end
@@ -52,6 +64,7 @@ local endsit = ulx.command( CATEGORY_NAME, "ulx endsit", ulx.endsit, "!endsit" )
 endsit:defaultAccess( ULib.ACCESS_ADMIN )
 endsit:help( "Ends the current sit." )
 
+-- Show Active Sits
 function ulx.activesits( calling_ply )
 	calling_ply:ConCommand("gmodadminsuite adminsits")
 end
