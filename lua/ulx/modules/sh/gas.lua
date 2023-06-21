@@ -71,3 +71,11 @@ end
 local resit = ulx.command( CATEGORY_NAME, "ulx activesits", ulx.activesits, "!activesits" )
 resit:defaultAccess( ULib.ACCESS_ADMIN )
 resit:help( "Display a list of currently on-going sits." )
+
+-- Open FPS-Booster ---
+function ulx.fpsboost( calling_ply )
+	calling_ply:ConCommand("gmodadminsuite fpsbooster")
+end
+local fpsboost = ulx.command( CATEGORY_NAME, "ulx fpsboost", ulx.fpsboost, "!fpsboost" )
+fpsboost:defaultAccess( ULib.ACCESS_ADMIN )
+fpsboost:help( "Opens the FPS-Booster GUI." )
